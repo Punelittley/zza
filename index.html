@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=368,initial-scale=1.0,user-scalable=no">
+    <title>Код проекта «Банкетам.Нет» – Apple Watch 8</title>
+    <style>
+        body{font-family:system-ui,sans-serif;background:#fff;color:#111;margin:0;padding:0;overflow-y:auto;}
+        .file{margin:12px 8px;break-inside:avoid;}
+        h2{font-size:1.1rem;color:#333;margin:4px 0;}
+        pre{background:#f5f5f5;padding:8px;overflow-x:auto;font-size:0.8rem;line-height:1.3;white-space:pre-wrap;word-wrap:break-word;}
+        code{font-family:monospace;}
+        @media (max-width:400px){
+            body{font-size:12px;}
+            h2{font-size:1rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="file">
+        <h2>index.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Банкетам.Нет – Главная&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Банкетам.Нет&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href=&quot;login.html&quot; class=&quot;btn&quot;&gt;Войти&lt;/a&gt;
+            &lt;a href=&quot;register.html&quot; class=&quot;btn btn-outline&quot;&gt;Регистрация&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+
+        &lt;!-- Hero --&gt;
+        &lt;section class=&quot;hero&quot;&gt;
+            &lt;h2&gt;Идеальный банкет начинается здесь&lt;/h2&gt;
+            &lt;p&gt;Бронируйте залы, рестораны и веранды в пару кликов&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;!-- 2 блока с картинками --&gt;
+        &lt;div class=&quot;img-blocks&quot;&gt;
+            &lt;div class=&quot;img-block&quot;&gt;
+                &lt;img src=&quot;img/strizka.jpg&quot; alt=&quot;Ресторан&quot;&gt;
+                &lt;div class=&quot;img-label&quot;&gt;Ресторан и зал&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;img-block&quot;&gt;
+                &lt;img src=&quot;https://placehold.co/600x400/c026d3/fff?text=Веранда&quot; alt=&quot;Веранда&quot;&gt;
+                &lt;div class=&quot;img-label&quot;&gt;Летняя и закрытая веранда&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Карточки преимуществ --&gt;
+        &lt;div class=&quot;grid&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;h3&gt;Широкий выбор&lt;/h3&gt;
+                &lt;p&gt;Залы, рестораны, летние и закрытые веранды — под любой повод.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;h3&gt;Удобный поиск&lt;/h3&gt;
+                &lt;p&gt;Фильтры помогут быстро найти нужное помещение по дате.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;h3&gt;Безопасные платежи&lt;/h3&gt;
+                &lt;p&gt;Картой онлайн, наличными или переводом по счёту.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;a href=&quot;login.html&quot; class=&quot;btn&quot;&gt;Войти в систему&lt;/a&gt;
+            &lt;a href=&quot;register.html&quot; class=&quot;btn btn-outline&quot;&gt;Зарегистрироваться&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>login.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Вход – Банкетам.Нет&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;&quot;&gt;
+    &lt;div class=&quot;form-box&quot;&gt;
+        &lt;h2&gt;Вход&lt;/h2&gt;
+        &lt;form id=&quot;loginForm&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Логин&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;login&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Пароль&lt;/label&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot; style=&quot;width:100%&quot;&gt;Войти&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;p class=&quot;form-footer&quot;&gt;Нет аккаунта? &lt;a href=&quot;register.html&quot;&gt;Регистрация&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>register.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Регистрация – Банкетам.Нет&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;&quot;&gt;
+    &lt;div class=&quot;form-box&quot;&gt;
+        &lt;h2&gt;Регистрация&lt;/h2&gt;
+        &lt;form id=&quot;registerForm&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;ФИО&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;fullname&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Телефон&lt;/label&gt;
+                &lt;input type=&quot;tel&quot; name=&quot;phone&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;E-mail&lt;/label&gt;
+                &lt;input type=&quot;email&quot; name=&quot;email&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Логин&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;regLogin&quot; name=&quot;login&quot; required&gt;
+                &lt;span class=&quot;error-hint&quot;&gt;Мин. 6 символов, латиница и цифры&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Пароль&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;regPass&quot; name=&quot;password&quot; required&gt;
+                &lt;span class=&quot;error-hint&quot;&gt;Минимум 8 символов&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot; style=&quot;width:100%&quot;&gt;Зарегистрироваться&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;p class=&quot;form-footer&quot;&gt;Уже есть аккаунт? &lt;a href=&quot;login.html&quot;&gt;Войти&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>dashboard.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Кабинет - Банкетам.Нет&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;script&gt;if (!localStorage.getItem('user')) location.href = 'login.html';&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;app-container&quot;&gt;
+        &lt;header style=&quot;display:flex; justify-content:space-between; align-items:center;&quot;&gt;
+            &lt;h1&gt;Мой Кабинет&lt;/h1&gt;
+            &lt;button onclick=&quot;logout()&quot;
+                style=&quot;background:none; border:none; color:var(--error); font-weight:bold; cursor:pointer;&quot;&gt;Выход&lt;/button&gt;
+        &lt;/header&gt;
+        &lt;main&gt;
+            &lt;!-- Слайдер --&gt;
+            &lt;div class=&quot;slider&quot;&gt;
+                &lt;div class=&quot;slides&quot;&gt;
+                    &lt;div class=&quot;slide&quot; style=&quot;background-image: url('img/strizka.jpg');&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;slide&quot;
+                        style=&quot;background-image: url('https://placehold.co/400x200/a21caf/fff?text=Зал');&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;slide&quot;
+                        style=&quot;background-image: url('https://placehold.co/400x200/86198f/fff?text=Летняя+Веранда');&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;slide&quot;
+                        style=&quot;background-image: url('https://placehold.co/400x200/701a75/fff?text=Закрытая+Веранда');&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;slider-btn slider-prev&quot;&gt;&larr;&lt;/button&gt;
+                &lt;button class=&quot;slider-btn slider-next&quot;&gt;&rarr;&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;a href=&quot;create.html&quot; class=&quot;btn&quot; style=&quot;margin-bottom:20px;&quot;&gt;+ Новая заявка&lt;/a&gt;
+
+            &lt;h3&gt;Мои заявки&lt;/h3&gt;
+            &lt;div id=&quot;requestsList&quot; class=&quot;requests-grid&quot; style=&quot;margin-top:15px;&quot;&gt;&lt;/div&gt;
+        &lt;/main&gt;
+
+        &lt;template id=&quot;reqTpl&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+                &lt;h4 data-f=&quot;venue&quot;&gt;&lt;/h4&gt;
+                &lt;p class=&quot;card-meta&quot; data-f=&quot;meta&quot;&gt;&lt;/p&gt;
+                &lt;span class=&quot;badge&quot; data-f=&quot;badge&quot;&gt;&lt;/span&gt;
+                &lt;div class=&quot;rev-block&quot; style=&quot;margin-top:8px;display:none&quot;&gt;
+                    &lt;p class=&quot;rev-text&quot; style=&quot;font-size:12px;font-style:italic;display:none&quot;&gt;&lt;/p&gt;
+                    &lt;input class=&quot;rev-input&quot; placeholder=&quot;Ваш отзыв...&quot;&gt;
+                    &lt;button class=&quot;btn rev-btn&quot;&gt;Отправить&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>create.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Оформление - Банкетам.Нет&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;script&gt;if(!localStorage.getItem('user')) location.href='login.html';&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;app-container&quot;&gt;
+        &lt;header&gt;&lt;h1&gt;Оформление заявки&lt;/h1&gt;&lt;/header&gt;
+        &lt;main&gt;
+            &lt;form id=&quot;createForm&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label&gt;Выберите помещение&lt;/label&gt;
+                    &lt;select name=&quot;venue&quot; required&gt;
+                        &lt;option value=&quot;Зал&quot;&gt;Зал&lt;/option&gt;
+                        &lt;option value=&quot;Ресторан&quot;&gt;Ресторан&lt;/option&gt;
+                        &lt;option value=&quot;Летняя веранда&quot;&gt;Летняя веранда&lt;/option&gt;
+                        &lt;option value=&quot;Закрытая веранда&quot;&gt;Закрытая веранда&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label&gt;Дата начала&lt;/label&gt;
+                    &lt;input type=&quot;date&quot; name=&quot;booking_date&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label&gt;Способ оплаты&lt;/label&gt;
+                    &lt;select name=&quot;payment_method&quot; required&gt;
+                        &lt;option value=&quot;Картой онлайн&quot;&gt;Картой онлайн&lt;/option&gt;
+                        &lt;option value=&quot;Наличными менеджеру&quot;&gt;Наличными менеджеру&lt;/option&gt;
+                        &lt;option value=&quot;Перевод по счету&quot;&gt;Перевод по счету&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Создать заявку&lt;/button&gt;
+            &lt;/form&gt;
+            &lt;a href=&quot;dashboard.html&quot; class=&quot;btn btn-outline&quot; style=&quot;margin-top:15px;&quot;&gt;Отмена&lt;/a&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>admin.html</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Админ - Банкетам.Нет&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;script&gt;
+        const u = JSON.parse(localStorage.getItem('user'));
+        if(!u || u.role !== 'admin') location.href='login.html';
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;app-container&quot;&gt;
+        &lt;header style=&quot;display:flex; justify-content:space-between; align-items:center;&quot;&gt;
+            &lt;h1&gt;Управление&lt;/h1&gt;
+            &lt;button onclick=&quot;logout()&quot; style=&quot;background:none; border:none; color:var(--error); font-weight:bold; cursor:pointer;&quot;&gt;Выход&lt;/button&gt;
+        &lt;/header&gt;
+        &lt;main&gt;
+            &lt;div style=&quot;display:flex; justify-content:space-between; margin-bottom:15px; align-items:center;&quot;&gt;
+                &lt;label style=&quot;font-size:12px;&quot;&gt;Фильтр:&lt;/label&gt;
+                &lt;select id=&quot;filterStatus&quot; style=&quot;padding:5px; border-radius:5px; border:1px solid var(--border);&quot;&gt;
+                    &lt;option value=&quot;Все&quot;&gt;Все статусы&lt;/option&gt;
+                    &lt;option value=&quot;Новая&quot;&gt;Новая&lt;/option&gt;
+                    &lt;option value=&quot;Банкет назначен&quot;&gt;Банкет назначен&lt;/option&gt;
+                    &lt;option value=&quot;Банкет завершен&quot;&gt;Банкет завершен&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div id=&quot;adminList&quot; class=&quot;requests-grid&quot;&gt;&lt;/div&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+
+    &lt;template id=&quot;adminTpl&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;p&gt;&lt;b data-f=&quot;fullname&quot;&gt;&lt;/b&gt; (&lt;span data-f=&quot;phone&quot;&gt;&lt;/span&gt;)&lt;/p&gt;
+            &lt;p class=&quot;card-meta&quot; data-f=&quot;meta&quot;&gt;&lt;/p&gt;
+            &lt;select style=&quot;padding:6px;border-radius:6px;margin-top:8px;border:1px solid #e5e7eb;width:100%&quot;&gt;
+                &lt;option&gt;Новая&lt;/option&gt;
+                &lt;option&gt;Банкет назначен&lt;/option&gt;
+                &lt;option&gt;Банкет завершен&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;div style=&quot;text-align:center; margin-top:20px; font-size:12px; color:#666;&quot;&gt;
+        Страница 1 из 1 (Пагинация)
+    &lt;/div&gt;
+
+    &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>style.css</h2>
+        <pre><code>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#f5f5f7;color:#333;padding:0 20px;max-width:1000px;margin:0 auto;}
+header{padding:15px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;margin-bottom:20px;}
+header h1{color:#8b5cf6;font-size:20px;}
+.hero{background:linear-gradient(to right, #8b5cf6, #c026d3);color:#fff;padding:40px 20px;border-radius:10px;text-align:center;margin-bottom:20px;}
+.grid, .requests-grid, .img-blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-bottom:20px;}
+.card, .form-box{background:#fff;padding:20px;border-radius:10px;border:1px solid #ddd;}
+.card h3, .card h4{color:#8b5cf6;margin-bottom:5px;}
+.btn{display:inline-block;padding:10px 15px;background:#8b5cf6;color:#fff;border:none;border-radius:6px;cursor:pointer;text-decoration:none;font-weight:600;}
+.btn-outline{background:transparent;color:#8b5cf6;border:1px solid #8b5cf6;}
+.form-group{margin-bottom:15px;}
+.form-group label{display:block;margin-bottom:5px;font-size:14px;}
+.form-group input, .form-group select{width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;}
+.badge{padding:4px 8px;border-radius:12px;font-size:12px;}
+.status-Новая{background:#dbeafe;color:#1d4ed8;}
+.status-назначен{background:#fef9c3;color:#a16207;}
+.status-завершен{background:#dcfce7;color:#166534;}
+.img-block{border-radius:10px;overflow:hidden;position:relative;height:180px;}
+.img-block img{width:100%;height:100%;object-fit:cover;}
+.img-block .img-label{position:absolute;bottom:0;width:100%;background:rgba(0,0,0,.6);color:#fff;padding:10px;}
+.slider{height:200px;border-radius:10px;overflow:hidden;position:relative;margin-bottom:20px;}
+.slides{display:flex;height:100%;transition:.5s;}
+.slide{min-width:100%;background-size:cover;background-position:center;}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;}
+.slider-prev{left:10px;} .slider-next{right:10px;}
+#toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,100px);background:#333;color:#fff;padding:10px 20px;border-radius:20px;transition:.3s;z-index:99;}
+#toast.show{transform:translate(-50%,0);}
+.auth-links, .form-footer{text-align:center;margin-top:20px;}
+.error-hint{color:red;font-size:12px;display:none;}
+.has-error .error-hint{display:block;}
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>app.js</h2>
+        <pre><code>// Toast
+const toast = msg => {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+};
+
+// API
+const api = async (url, method = 'GET', body = null) => {
+    const r = await fetch(url, { method, headers: {'Content-Type':'application/json'}, body: body ? JSON.stringify(body) : null });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error);
+    return j;
+};
+
+// Slider
+let si = 0;
+const slides = document.querySelector('.slides');
+if (slides) {
+    const move = d => { si = (si + d + 4) % 4; slides.style.transform = `translateX(-${si * 100}%)`; };
+    document.querySelector('.slider-next').onclick = () => move(1);
+    document.querySelector('.slider-prev').onclick = () => move(-1);
+    setInterval(() => move(1), 3000);
+}
+
+const user = JSON.parse(localStorage.getItem('user'));
+const logout = () => { localStorage.removeItem('user'); location.href = 'login.html'; };
+
+// Login
+const lf = document.getElementById('loginForm');
+if (lf) lf.onsubmit = async e => {
+    e.preventDefault();
+    try {
+        const res = await api('/api/login', 'POST', Object.fromEntries(new FormData(lf)));
+        localStorage.setItem('user', JSON.stringify(res));
+        location.href = res.role === 'admin' ? 'admin.html' : 'dashboard.html';
+    } catch (e) { toast(e.message); }
+};
+
+// Registration
+const rf = document.getElementById('registerForm');
+if (rf) rf.onsubmit = async e => {
+    e.preventDefault();
+    const li = document.getElementById('regLogin'), pi = document.getElementById('regPass');
+    const ok1 = /^[A-Za-z0-9]{6,}$/.test(li.value), ok2 = pi.value.length >= 8;
+    li.parentElement.classList.toggle('has-error', !ok1);
+    pi.parentElement.classList.toggle('has-error', !ok2);
+    if (!ok1 || !ok2) return toast('Проверьте ошибки');
+    try {
+        await api('/api/register', 'POST', Object.fromEntries(new FormData(rf)));
+        toast('Готово!'); setTimeout(() => location.href = 'login.html', 1500);
+    } catch (e) { toast(e.message); }
+};
+
+// Create request
+const cf = document.getElementById('createForm');
+if (cf && user) cf.onsubmit = async e => {
+    e.preventDefault();
+    try {
+        await api('/api/requests', 'POST', { ...Object.fromEntries(new FormData(cf)), user_id: user.id });
+        toast('Заявка создана!'); setTimeout(() => location.href = 'dashboard.html', 1500);
+    } catch (e) { toast(e.message); }
+};
+
+// User requests – template‑based rendering
+const rl = document.getElementById('requestsList');
+if (rl && user) {
+    const tpl = document.getElementById('reqTpl');
+    const load = async () => {
+        const reqs = await api(`/api/requests/${user.id}`);
+        rl.innerHTML = '';
+        reqs.forEach(r => {
+            const card = tpl.content.cloneNode(true);
+            const statusKey = r.status.split(' ')[1] || r.status;
+            card.querySelector('[data-f=venue]').textContent = r.venue;
+            card.querySelector('[data-f=meta]').textContent = `${r.booking_date} · ${r.payment_method}`;
+            const badge = card.querySelector('[data-f=badge]');
+            badge.textContent = r.status;
+            badge.classList.add('status-' + statusKey);
+            if (r.status === 'Банкет завершен') {
+                const block = card.querySelector('.rev-block');
+                block.style.display = 'block';
+                if (r.review) {
+                    const pt = block.querySelector('.rev-text');
+                    pt.textContent = 'Отзыв: ' + r.review;
+                    pt.style.display = 'block';
+                    block.querySelector('.rev-input').style.display = 'none';
+                    block.querySelector('.rev-btn').style.display = 'none';
+                } else {
+                    const btn = block.querySelector('.rev-btn');
+                    btn.onclick = async () => {
+                        const v = block.querySelector('.rev-input').value;
+                        if (!v) return;
+                        await api(`/api/requests/${r.id}/review`, 'PUT', { review: v });
+                        toast('Отзыв сохранён'); load();
+                    };
+                }
+            }
+            rl.appendChild(card);
+        });
+    };
+    load();
+}
+
+// Admin – template‑based rendering
+const al = document.getElementById('adminList');
+if (al && user?.role === 'admin') {
+    let all = [];
+    const tpl = document.getElementById('adminTpl');
+    const render = data => {
+        al.innerHTML = '';
+        data.forEach(r => {
+            const card = tpl.content.cloneNode(true);
+            card.querySelector('[data-f=fullname]').textContent = r.fullname;
+            card.querySelector('[data-f=phone]').textContent = r.phone;
+            card.querySelector('[data-f=meta]').textContent = `${r.venue} · ${r.booking_date}`;
+            const sel = card.querySelector('select');
+            sel.value = r.status;
+            sel.onchange = async () => {
+                await api(`/api/admin/requests/${r.id}`, 'PUT', { status: sel.value });
+                toast('Статус: ' + sel.value);
+            };
+            al.appendChild(card);
+        });
+    };
+    api('/api/admin/requests').then(d => { all = d; render(d); });
+    document.getElementById('filterStatus')?.addEventListener('change', e => {
+        const v = e.target.value;
+        render(v === 'Все' ? all : all.filter(r => r.status === v));
+    });
+}
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>server.js</h2>
+        <pre><code>const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// База данных
+const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) => {
+    if (!err) db.exec(fs.readFileSync(path.join(__dirname, 'init.sql'), 'utf8'));
+});
+
+// АВТОРИЗАЦИЯ
+app.post('/api/login', (req, res) => {
+    db.get('SELECT * FROM users WHERE login = ? AND password = ?', [req.body.login, req.body.password], (err, row) => {
+        if (err || !row) return res.status(401).json({ error: 'Неверный логин или пароль' });
+        res.json({ id: row.id, login: row.login, role: row.role });
+    });
+});
+
+app.post('/api/register', (req, res) => {
+    const { login, password, fullname, phone, email } = req.body;
+    db.run('INSERT INTO users (login, password, fullname, phone, email) VALUES (?, ?, ?, ?, ?)',
+        [login, password, fullname, phone, email], function(err) {
+            if (err) return res.status(400).json({ error: 'Пользователь с таким логином уже существует' });
+            res.json({ id: this.lastID });
+        });
+});
+
+// ЗАЯВКИ
+app.get('/api/requests/:user_id', (req, res) => {
+    db.all('SELECT * FROM requests WHERE user_id = ? ORDER BY created_at DESC', [req.params.user_id], (err, rows) => res.json(rows));
+});
+
+app.post('/api/requests', (req, res) => {
+    const { user_id, venue, booking_date, payment_method } = req.body;
+    db.run('INSERT INTO requests (user_id, venue, booking_date, payment_method) VALUES (?, ?, ?, ?)',
+        [user_id, venue, booking_date, payment_method], function(err) {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+        });
+});
+
+// ОТЗЫВЫ
+app.put('/api/requests/:id/review', (req, res) => {
+    db.run('UPDATE requests SET review = ? WHERE id = ?', [req.body.review, req.params.id], err => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+});
+
+// АДМИН
+app.get('/api/admin/requests', (req, res) => {
+    db.all(`SELECT r.*, u.fullname, u.phone FROM requests r JOIN users u ON r.user_id = u.id ORDER BY r.created_at DESC`, (err, rows) => res.json(rows));
+});
+
+app.put('/api/admin/requests/:id', (req, res) => {
+    db.run('UPDATE requests SET status = ? WHERE id = ?', [req.body.status, req.params.id], err => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+</code></pre>
+    </div>
+
+    <div class="file">
+        <h2>init.sql</h2>
+        <pre><code>-- Пользователи
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    login TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    fullname TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT NOT NULL,
+    role TEXT DEFAULT 'user'
+);
+
+-- Помещения
+CREATE TABLE IF NOT EXISTS venues (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL,
+    capacity INTEGER NOT NULL,
+    price_per_hour REAL NOT NULL,
+    description TEXT
+);
+
+-- Менеджеры
+CREATE TABLE IF NOT EXISTS managers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+-- Заявки на банкет
+CREATE TABLE IF NOT EXISTS requests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    venue_id INTEGER,
+    manager_id INTEGER,
+    booking_date TEXT NOT NULL,
+    payment_method TEXT NOT NULL,
+    status TEXT DEFAULT 'Новая',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(venue_id) REFERENCES venues(id),
+    FOREIGN KEY(manager_id) REFERENCES managers(id)
+);
+
+-- Платежи
+CREATE TABLE IF NOT EXISTS payments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    request_id INTEGER NOT NULL,
+    amount REAL NOT NULL,
+    paid_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status TEXT DEFAULT 'Ожидание',
+    FOREIGN KEY(request_id) REFERENCES requests(id)
+);
+
+-- Отзывы
+CREATE TABLE IF NOT EXISTS reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    request_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    rating INTEGER CHECK(rating BETWEEN 1 AND 5),
+    text TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(request_id) REFERENCES requests(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+-- Стартовые данные помещений
+INSERT OR IGNORE INTO venues (name, type, capacity, price_per_hour) VALUES
+    ('Большой зал', 'Зал', 200, 5000),
+    ('Ресторан Панорама', 'Ресторан', 100, 8000),
+    ('Летняя веранда', 'Летняя веранда', 60, 3000),
+    ('Закрытая веранда', 'Закрытая веранда', 50, 3500);
+
+-- Администратор
+INSERT OR IGNORE INTO users (login, password, fullname, phone, email, role)
+VALUES ('Admin26', 'Demo20', 'Администратор', '+70000000000', 'admin@banketam.net', 'admin');
+</code></pre>
+    </div>
+</body>
+</html>
